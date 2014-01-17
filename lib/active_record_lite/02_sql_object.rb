@@ -16,7 +16,7 @@ class SQLObject < MassObject
   end
 
   def self.table_name
-    @table_name ||= self.to_s.underscore.pluralize
+    @table_name || self.to_s.underscore.pluralize
   end
 
   def self.all
@@ -30,8 +30,8 @@ class SQLObject < MassObject
 
   def self.find(id)
     query = <<-SQL
-      SELECT #{@table_name}.*
-      FROM #{@table_name}
+      SELECT #{self.table_name}.*
+      FROM #{self.table_name}
       WHERE id = ?
     SQL
     results = DBConnection.execute(query, id)
