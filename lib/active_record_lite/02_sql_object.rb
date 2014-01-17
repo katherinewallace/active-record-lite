@@ -21,8 +21,8 @@ class SQLObject < MassObject
 
   def self.all
     query = <<-SQL
-      SELECT #{@table_name}.*
-      FROM #{@table_name}
+      SELECT #{table_name}.*
+      FROM #{table_name}
     SQL
     results = DBConnection.execute(query)
     self.parse_all(results)
