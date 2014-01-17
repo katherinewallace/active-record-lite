@@ -15,11 +15,11 @@ module Associatable
         FROM #{through_table}
         JOIN #{source_table}
           ON #{through_table}.#{join_key_name} =
-        #{source_table}.#{source_options.model_class.send(join_key_name)}
-        WHERE through_table.#{through_options.primary_key} = ?
+        #{source_table}.#{source_options.primary_key}
+        WHERE #{through_table}.#{through_options.primary_key} = ?
       SQL
       results = DBConnection.execute(sql, self.send(through_options.foreign_key))
-      self.class.parse_all(results)
+      source_options.model_class.parse_all(results)[0]
     end
   end
 end
