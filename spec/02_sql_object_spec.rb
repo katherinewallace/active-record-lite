@@ -79,7 +79,7 @@ describe SQLObject do
     end
 
     it "#insert creates record with proper values" do
-      # pull the cat again
+
       cat2 = Cat.find(cat.id)
 
       expect(cat2.name).to eq("Gizmo")
@@ -91,11 +91,11 @@ describe SQLObject do
     it "#update changes attributes" do
       human = Human.find(2)
 
-    human.fname = "Matthew"
-    human.lname = "von Rubens"
-    human.update
+      human.fname = "Matthew"
+      human.lname = "von Rubens"
+      human.update
 
-      # pull the human again
+
       human = Human.find(2)
       expect(human.fname).to eq("Matthew")
       expect(human.lname).to eq("von Rubens")
