@@ -1,6 +1,5 @@
 require 'active_record_lite/01_mass_object'
 
-# Use these if you like.
 describe MassObject do
   before(:all) do
     class EmptyMassObject < MassObject
