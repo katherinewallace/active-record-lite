@@ -9,7 +9,7 @@ describe "Associatable" do
       my_attr_accessible :id, :name, :owner_id
       my_attr_accessor :id, :name, :owner_id
 
-      belongs_to :human, :foreign_key => :owner_id
+      belongs_to :human, foreign_key: :owner_id
     end
 
     class Human < SQLObject
@@ -18,7 +18,7 @@ describe "Associatable" do
       my_attr_accessible :id, :fname, :lname, :house_id
       my_attr_accessor :id, :fname, :lname, :house_id
 
-      has_many :cats, :foreign_key => :owner_id
+      has_many :cats, foreign_key: :owner_id
       belongs_to :house
     end
 
